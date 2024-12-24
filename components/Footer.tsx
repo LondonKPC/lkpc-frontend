@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className="w-full h-[410px] bg-black">
+    <div className="w-full h-[15%] bg-black">
         contact us
     </div>
   )
