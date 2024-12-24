@@ -26,7 +26,7 @@ function Footer() {
         <div className="px-8 text-[30px] flex-1 text-center">
           <p>Service</p>
           <div className="text-[16px]">
-            <p>Sunday: 2:15pm</p>
+            <p><b>Sunday:</b> 2:15pm - 4:30pm</p>
           </div>
         </div>
       </div>
