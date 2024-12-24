@@ -9,40 +9,69 @@ export default function NavBar() {
 
     return (
             <div className="w-full h-full">
-                    <nav className="flex justify-between items-center text-white py-6 px-8 md:px-32 bg-sky-900 drop-shadow-md">
+                    <nav className="flex justify-between items-center text-white py-2 px-4 md:px-8 bg-transparent drop-shadow-md">
                         {/* Desktop Menu */}
-                        <a href="/home" className="site-tite text-white"> 
+                        <a href="/home" className="flex-shrink-0"> 
                             <img src={LKPC_Logo.src} alt="LKPC Logo" className="w-32 h-32 hover:scale-105 transition-all" />
                         </a>
 
                         {/* Desktop Menu */}
-                        <ul className="hidden xl:flex items-center gap-12 font-semibold text-base">
-                            <li className="p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer">
-                                <a href="/about" className="text-white hover:text-indigo-200">About</a>
-                            </li>
-                            <li className="p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer">
-                                <a href="/service" className="text-white hover:text-indigo-200">Service</a>
-                            </li>
-                            <li className="p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer">
-                                <a href="/event" className="text-white hover:text-indigo-200">Events</a>
-                            </li>
-                        </ul>
-                        
-                        <div className="relative hidden md:flex items-center justify-center gap-3 font-semibold text-base">
-                            <ul>
-                                <li className="p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer">Contact</li>
+                        <div className="flex justify-center">
+                            <ul className="hidden md:flex flex-1 items-center gap-12 font-semibold text-base">
+                                <li className="p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer">
+                                    <a href="/about" className="text-white hover:text-indigo-200">About</a>
+                                </li>
+                                <li className="p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer">
+                                    <a href="/service" className="text-white hover:text-indigo-200">Service</a>
+                                </li>
+                                <li className="p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer">
+                                    <a href="/event" className="text-white hover:text-indigo-200">Events</a>
+                                </li>
+                                <li className="p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer">
+                                    <a href="/contact" className="text-white hover:text-indigo-200">Contact</a>
+                                </li>
                             </ul>
                         </div>
-
                         {/* Hamburger Icon (only visible on smaller screens) not working */}
                         
-                        <i
-                            className="bx bx-menu xl:hidden block" 
-                            onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                        ></i>
-                        
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu">
+                            {isMenuOpen ? (
+                            // Close Icon
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="md:hidden size-6"
+                            >
+                                <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                            ) : (
+                            // Hamburger Icon
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="md:hidden size-6"
+                            >
+                                <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                                />
+                            </svg>
+                            )}
+                        </button>
+
                         {/* Mobile Menu */}
-                        <div className={`absolute xl:hidden top-24 left-0 w-full bg-sky-800 
+                        <div className={`absolute md:hidden top-24 left-0 w-full bg-sky-800 
                             flex flex-col items-center gap-6 font-semibold text-lg 
                             transition-transform ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} 
                             transform duration-300 ease-in-out`}>
