@@ -1,21 +1,24 @@
-import React from 'react'
+import React from "react";
 import capy from "@/images/capy.png";
-import Footer from '@/components/Footer';
+import Footer from "@/components/Footer";
+import GridButton from "@/components/GridButton";
 
 function Home() {
   return (
-    <div className="h-full">
-
-      <div className="flex h-full">
-        <div className="w-1/2 bg-slate-700 float-left text-center opacity-90 hover:opacity-100">
-            Home...
-        </div>
-
-        <img src={capy.src} alt="capybara" className="text-black w-1/2 float-right opacity-70 hover:opacity-80"></img>
+    <div className="h-full w-full flex items-center justify-center">
+      <div className="grid grid-cols-3 gap-4 h-[500px] w-[500px]">
+        <GridButton imageSrc={capy} />
+        <GridButton imageSrc={capy} />
+        <GridButton imageSrc={capy} />
+        <GridButton imageSrc={capy} />
+        <GridButton imageSrc={capy} />
+        <GridButton imageSrc={capy} />
+        <GridButton imageSrc={capy} />
+        <GridButton imageSrc={capy} />
+        <GridButton imageSrc={capy} />
       </div>
-      <Footer />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
