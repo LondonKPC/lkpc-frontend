@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import LKPC_Logo from "../images/LKPC_Logo.png";
+import "./NavBar.css";
 
 export default function NavBar() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-            <div className="w-full h-full bg-black">
-                    <nav className="flex justify-between items-center text-white py-2 px-4 md:px-8 bg-transparent drop-shadow-md">
+            <div className="w-full h-full bg-transparent">
+                    <nav className="flex justify-between items-center text-white py-2 px-4 md:px-8 bg-transparent drop-shadow-md relative">
                         {/* Desktop Menu */}
                         <a href="/home" className="flex-shrink-0"> 
                             <img src={LKPC_Logo.src} alt="LKPC Logo" className="w-24 h-24 hover:scale-105 transition-all" />
@@ -42,7 +43,7 @@ export default function NavBar() {
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth="1.5"
-                                stroke="currentColor"
+                                stroke="black"
                                 className="md:hidden size-16"
                             >
                                 <path
@@ -58,7 +59,7 @@ export default function NavBar() {
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth="1.5"
-                                stroke="currentColor"
+                                stroke="black"
                                 className="md:hidden size-16"
                             >
                                 <path
@@ -71,23 +72,23 @@ export default function NavBar() {
                         </button>
 
                         {/* Mobile Menu */}
-                        <div className={`absolute md:hidden top-24 left-0 w-full bg-black 
-                            flex flex-col items-center gap-6 font-semibold text-lg 
+                        <div className={`absolute md:hidden top-28 left-0 w-full bg-black 
+                            flex flex-col items-center gap-6 font-semibold text-lg rounded-lg
                             transition-transform ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} 
                             transform duration-300 ease-in-out`}>
 
                             
                             <ul className="p-0 m-0 list-none text-center">
-                                <li className="p-4 navbar-link-text transition-all cursor-pointer">
+                                <li className="mobile-navbar-link">
                                     <a href="/about">About</a>
                                 </li>
-                                <li className="p-4 navbar-link-text transition-all cursor-pointer">
+                                <li className="mobile-navbar-link">
                                     <a href="/service">Service</a>
                                 </li>
-                                <li className="p-4 navbar-link-text transition-all cursor-pointer">
+                                <li className="mobile-navbar-link">
                                     <a href="/event">Events</a>
                                 </li>
-                                <li className="p-4 navbar-link-text transition-all cursor-pointer">
+                                <li className="mobile-navbar-link">
                                     <a href="/contact">Contact</a>
                                 </li>
                             </ul>
