@@ -1,20 +1,10 @@
 import React from "react";
+import Home from "./home/page";
 
-export default function Home(): React.ReactNode {
+export default function Main(): React.ReactNode {
   return (
-    <main>
-      <div className="h-30 bg-slate-900">
-        <p className="text-sky-400 text-center text-[100px]">Hello world</p>
-      </div>
-
-      <div>
-        <button className="bg-black float-left m-16 w-40 h-20">
-          Back
-        </button>
-        <button className="bg-black float-right m-16 w-40 h-20">
-          Go
-        </button>
-      </div>
+    <main className="h-full">
+      <Home />
     </main>
   );
 }
