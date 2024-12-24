@@ -23,7 +23,7 @@ export default function NavBar() {
                                     <a href="/about" className="navbar-link-text">About</a>
                                 </li>
                                 <li className="navbar-link">
-                                    <a href="/service" className="navbar-link-text">Service</a>
+                                    <a href="/connect" className="navbar-link-text">Connect</a>
                                 </li>
                                 <li className="navbar-link">
                                     <a href="/event" className="navbar-link-text">Events</a>
