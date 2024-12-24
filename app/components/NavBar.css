@@ -3,9 +3,27 @@
 }
 
 .navbar-link-text {
-    @apply text-white hover:text-indigo-200;
+    @apply text-black hover:text-indigo-200;
 }
 
 .mobile-navbar-link {
-    @apply p-4 transition-all cursor-pointer;
+    @apply py-12 px-10 transition-all cursor-pointer;
+}
+
+.hamburger-list {
+    @apply absolute md:hidden right-0 top-0 min-h-screen bg-black
+    flex flex-col items-center gap-6 font-semibold text-lg rounded-l-lg py-44
+    duration-200 ease-in-out;
+}
+
+.hamburger-list.slide-in { 
+    transform: translateX(0);
+}
+
+.close-icon {
+    @apply md:hidden transition-transform transform duration-300 ease-in-out;
+}
+
+.close-icon.slide-out {
+    transform: translate(-200%)
 }

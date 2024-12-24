@@ -44,7 +44,8 @@ export default function NavBar() {
                                 viewBox="0 0 24 24"
                                 strokeWidth="1.5"
                                 stroke="black"
-                                className="md:hidden size-16"
+                                className={`close-icon size-16
+                                    ${isMenuOpen ? 'slide-out' : ''}`}
                             >
                                 <path
                                 strokeLinecap="round"
@@ -72,10 +73,8 @@ export default function NavBar() {
                         </button>
 
                         {/* Mobile Menu */}
-                        <div className={`absolute md:hidden top-28 left-0 w-full bg-black 
-                            flex flex-col items-center gap-6 font-semibold text-lg rounded-lg
-                            transition-transform ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} 
-                            transform duration-300 ease-in-out`}>
+                        <div className={`hamburger-list 
+                            ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-96'}`}>
 
                             
                             <ul className="p-0 m-0 list-none text-center">
