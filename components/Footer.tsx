@@ -27,7 +27,6 @@ function Footer() {
           <p>Service</p>
           <div className="text-[16px]">
             <p>Sunday: 2:15pm</p>
-            <p>Friday: 6:30pm</p>
           </div>
         </div>
       </div>
