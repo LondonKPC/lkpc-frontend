@@ -10,7 +10,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu:latest
-    environment: ${{ github.ref == 'refs/head/deploy-frontend-to-s3-workflow' && 'prod' || 'dev' }}
+    environment: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
 
     steps:
       # checkout@v3 is an action to check out the code from the repository
@@ -35,11 +35,11 @@ jobs:
 
       # Set up AWS CLI
       - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: $ {{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: $ {{ secrets.AWS_REGION }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       # Deploy to AWS (dev or prod)
       - name: Deploy to AWS
