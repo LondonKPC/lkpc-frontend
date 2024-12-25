@@ -4,12 +4,13 @@ name: Deploy lkpc-frontend to S3
 on:
   push:
     branches:
-      - *
+      - main
+      - dev
 
 jobs:
   deploy:
     runs-on: ubuntu:latest
-    environment: ${{ github.ref == 'refs/head/deploy-frontend-to-s3-workflow' && 'prod' || 'dev' }}
+    environment: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
 
     steps:
       # checkout@v3 is an action to check out the code from the repository
@@ -34,14 +35,22 @@ jobs:
 
       # Set up AWS CLI
       - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials
+        id: aws_credentials
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: $ {{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: $ {{ secrets.AWS_REGION }}
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "Using production environment"
+            echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_PROD }}" >> $GITHUB_ENV
+            echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}" >> $GITHUB_ENV
+            echo "AWS_REGION=${{ secrets.AWS_REGION_PROD }}" >> $GITHUB_ENV
+          else
+            echo "Using development environment"
+            echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_DEV }}" >> $GITHUB_ENV
+            echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}" >> $GITHUB_ENV
+            echo "AWS_REGION=${{ secrets.AWS_REGION_DEV }}" >> $GITHUB_ENV
+          fi
 
       # Deploy to AWS (dev or prod)
       - name: Deploy to AWS
         run: |
-          chmod +x ./deployFrontend.sh
-          ./deployFrontend.sh
+          chmod +x ./deploy_frontend.sh
+          ./deploy_frontend.sh
