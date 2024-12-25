@@ -49,8 +49,7 @@ jobs:
 
       - name: Print env vars
         run: |
-          echo "AWS_REGION: ${{ env.AWS_REGION }}"
-          echo "Using environment: ${{ github.ref }}"
+          echo "Using environment: ${{ secrets.AWS_REGION_DEV }}"
 
       # Setup AWS CLI with the environment variables
       - name: Configure AWS CLI
