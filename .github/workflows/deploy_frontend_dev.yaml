@@ -42,6 +42,4 @@ jobs:
 
       # Deploy to AWS (dev or prod)
       - name: Deploy to AWS
-        run: |
-          chmod +x ./deploy_frontend_dev.sh
-          ./deploy_frontend_dev.sh
+        run: aws s3 sync out/ s3://lkpc-hosting-dev --delete
