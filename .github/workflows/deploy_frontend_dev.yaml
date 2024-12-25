@@ -9,6 +9,10 @@ on:
       BUCKET_NAME: "lkpc-hosting-dev"
       AWS_REGION: "us-east-2"
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
@@ -24,13 +28,11 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: |
-          npm install
+        run: npm install
 
       # Build the app
       - name: Build the app
-        run: |
-          npm run build
+        run: npm run build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
