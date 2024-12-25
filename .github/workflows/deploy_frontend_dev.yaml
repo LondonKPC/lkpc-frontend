@@ -4,10 +4,7 @@ name: Deploy lkpc-frontend to S3
 on:
   push:
     branches:
-      - "*"
-    env:
-      BUCKET_NAME: "lkpc-hosting-dev"
-      AWS_REGION: "us-east-2"
+      - dev
 
 permissions:
   id-token: write
