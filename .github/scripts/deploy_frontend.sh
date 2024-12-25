@@ -1,18 +1,17 @@
 #!/bin/bash
-# deployFrontend.sh
+# deploy_frontend.sh
 
-# Gets the branch name from the GitHub reference (ex. refs/head/main)
-BRANCH_NAME="${GITHUB_REF##*/}"
+BUCKET_NAME="lkpc-hosting-${ENVIRONMENT}"
 
-if [ "$BRANCH_NAME" == "main" ]; then
+if [ "$ENVIRONMENT" == "prod" ]; then
     echo "Deploying to Production..."
     # Sync to production S3 bucket
-    aws s3 sync out/ s3://lkpc-hosting-prod --delete
+    aws s3 sync out/ s3://"$BUCKET_NAME" --delete
 
 elif [ "$BRANCH_NAME" == "dev" ]; then
     echo "Deploying to Development..."
     # Sync to dev S3 bucket
-    aws s3 sync out/ s3://lkpc-hosting-dev --delete
+    aws s3 sync out/ s3://"$BUCKET_NAME" --delete
 
 else
     echo "Branch is not configured for deployment. Exiting..."
