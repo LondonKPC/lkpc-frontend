@@ -38,7 +38,7 @@ jobs:
         with:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID_DEV }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY_DEV }}
-          aws-region: ${{ env.AWS_REGION_DEV }}
+          aws-region: us-east-2
 
       # Deploy to AWS (dev or prod)
       - name: Deploy to AWS
