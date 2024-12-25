@@ -4,7 +4,8 @@ name: Deploy lkpc-frontend to S3
 on:
   push:
     branches:
-      - "*"
+      - main
+      - dev
 
 jobs:
   deploy:
