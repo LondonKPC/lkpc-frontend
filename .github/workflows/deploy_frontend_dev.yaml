@@ -39,7 +39,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::774305616028:role/GithubActionRole
           role-session-name: GithubToS3
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: us-east-2
 
       - name: Deploy to S3
         run: aws s3 sync out/ s3://${{ env.BUCKET_NAME }} --delete
