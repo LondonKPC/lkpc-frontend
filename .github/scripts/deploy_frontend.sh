@@ -1,7 +1,7 @@
 #!/bin/bash
 # deploy_frontend.sh
 
-BUCKET_NAME="lkpc-hosting-${ENVIRONMENT}"
+BUCKET_NAME="lkpc-hosting-dev"
 
 if [ "$ENVIRONMENT" == "prod" ]; then
     echo "Deploying to Production..."
