@@ -1,0 +1,47 @@
+name: Deploy lkpc-frontend to S3
+
+# Triggers on push to main and dev branches
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Build the app
+      - name: Build the app
+        run: |
+          npm run build
+
+      # Setup AWS CLI with the environment variables
+      - name: Configure AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID_DEV }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY_DEV }}
+          aws-region: ${{ env.AWS_REGION_DEV }}
+
+      # Deploy to AWS (dev or prod)
+      - name: Deploy to AWS
+        run: |
+          chmod +x ./deploy_frontend_dev.sh
+          ./deploy_frontend_dev.sh
