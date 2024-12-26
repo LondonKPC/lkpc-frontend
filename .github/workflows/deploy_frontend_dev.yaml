@@ -52,6 +52,6 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws cloudfront list-distributions --output
+          aws cloudfront list-distributions --output json
           aws s3 sync out/ s3://lkpc-hosting-dev --delete
           aws cloudfront create-invalidation --distribution-id EYUKGCAC20DAQ --paths "/*"
