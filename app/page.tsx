@@ -1,10 +1,10 @@
 import React from "react";
-import NavBar from "./components/NavBar";
+import Home from "./home/page";
 
-export default function Home(): React.ReactNode {
+export default function Main(): React.ReactNode {
   return (
-    <main>
-      <NavBar />
+    <main className="h-full">
+      <Home />
     </main>
   );
 }
