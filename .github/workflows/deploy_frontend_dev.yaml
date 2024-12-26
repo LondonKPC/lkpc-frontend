@@ -52,6 +52,5 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws cloudfront list-distributions --query 'DistributionList.Items[*].{ID:Id,DomainName:DomainName}' --output table
           aws s3 sync out/ s3://lkpc-hosting-dev --delete
           aws cloudfront create-invalidation --distribution-id "EYUKGCAC20DAQ" --paths "/*"
