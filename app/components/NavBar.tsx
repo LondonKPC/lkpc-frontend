@@ -13,12 +13,12 @@ export default function NavBar() {
     };
 
     return (
-            <div className="w-full h-full bg-transparent">
+            <div className="w-full h-[0px] bg-transparent">
                 {/* Desktop Menu */}
-                <a href="/home" className="flex-shrink-0 fixed"> 
-                    <img src={LKPC_Logo.src} alt="LKPC Logo" className="w-24 h-24 hover:scale-105 transition-all" />
+                <a href="./home" className="flex-shrink-0 fixed w-24 h-24"> 
+                    <img src={LKPC_Logo.src} alt="LKPC Logo" className="hover:scale-105 transition-all" />
                 </a>
-                <nav className="flex items-center text-white py-2 px-4 md:px-8 bg-transparent drop-shadow-md relative">
+                <nav className="flex items-center text-white py-2 px-4 md:px-8 bg-transparent">
 
                     <div className="w-full">
                         {/* Desktop Menu */}
@@ -47,7 +47,7 @@ export default function NavBar() {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="black"
-                        className="size-16"
+                        className="w-6 h-6"
                         >
                             <path
                             strokeLinecap="round"
@@ -59,7 +59,7 @@ export default function NavBar() {
                 </nav> 
 
                 {/* Mobile Menu */} 
-                <div className={`md:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div className={`md:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
                     <button onClick={handleToggle} className="absolute top-4 left-4 text-2xl focus:outline-none" >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
