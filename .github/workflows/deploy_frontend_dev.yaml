@@ -35,8 +35,10 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::774305616028:role/GithubActionRole
-          role-session-name: GithubToS3
+          session-name: "github-to-s3"
           aws-region: us-east-2
 
       - name: Deploy to S3
-        run: aws s3 sync out/ s3://lkpc-hosting-dev --delete
+        run: |
+          aws s3 sync out/ s3://lkpc-hosting-dev --delete
+          aws cloudfront create-invalidation --distribution-id "EYUKGCAC20DAQ" --paths "/*"
