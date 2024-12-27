@@ -1,9 +1,9 @@
 import React from 'react';
-import disc from "@/images/discord.png";
-import insta from "@/images/insta.png";
-import email from "@/images/email.png";
+import disc from "@/public/discord.png";
+import insta from "@/public/insta.png";
+import email from "@/public/email.png";
 
-function Footer() {
+const Footer = () => {
   return (
     <div>
       <div className="bg-[#7a7c7b] w-full h-[50px] flex items-center justify-center">
