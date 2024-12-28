@@ -4,7 +4,7 @@ import water_capy from "@/images/water_capy.png";
 export default function About() {
   return (
     <div className="w-full h-full bg-white flex flex-col items-center">
-      <div className="w-[90%] h-[50%] bg-black mb-4 relative">
+      <div className="w-[95%] h-[50%] bg-black mt-16 relative">
         <img 
           src={water_capy.src} 
           alt="capybara in water" 
