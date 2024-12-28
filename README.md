@@ -62,12 +62,13 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 
 ### Users
-`General User`
+`User - Leader`
 - Access to modifying their respective group pages/descriptions (ex. CU user can modify CU info)
+- Restricted to only creating group events and group announcements
 
-`Admin User`
-- Access to modifying all pages/descriptions
-- Able to create, delete, update general users
+`User - Administrator`
+- Access to modifying all pages/descriptions/photos
+- Able to create, delete, update leader users
 
 
 ### Functionalities
