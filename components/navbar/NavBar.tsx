@@ -12,7 +12,7 @@ const NavBar = () => {
     };
 
     return (
-            <div className="w-full h-full bg-transparent fixed">
+            <div className="w-full h-full bg-transparent fixed z-50">
                 {/* Desktop Menu */}
                 <a href="/home" className="fixed z-10 hover:scale-105 transition-all rounded-full">
                     <img src={LKPC_Logo.src} alt="LKPC Logo" className="w-20 h-20 rounded-full" />
