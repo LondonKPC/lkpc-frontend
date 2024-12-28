@@ -1,28 +1,27 @@
 'use client'
 
 import { useState } from "react";
-import LKPC_Logo from "../images/LKPC_Logo.png";
+import LKPC_Logo from "@/public/LKPC_Logo.png";
 import "./NavBar.css";
 
-export default function NavBar() {
+const NavBar = () => {
 
-    const [isOpen, setIsOpen] = useState(false); 
-
-    const handleToggle = () => { 
-        setIsOpen(!isOpen); 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const handleOpenMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     return (
-            <div className="w-full h-full bg-transparent">
+            <div className="fixed w-full bg-transparent justify-center items-center">
                 {/* Desktop Menu */}
-                <a href="/home" className="flex-shrink-0 fixed"> 
-                    <img src={LKPC_Logo.src} alt="LKPC Logo" className="w-24 h-24 hover:scale-105 transition-all" />
+                <a href="/home" className="fixed z-10 hover:scale-105 transition-all rounded-full">
+                    <img src={LKPC_Logo.src} alt="LKPC Logo" className="w-20 h-20 rounded-full" />
                 </a>
                 <nav className="flex items-center text-white py-2 px-4 md:px-8 bg-transparent drop-shadow-md relative">
 
                     <div className="w-full">
-                        {/* Desktop Menu */}
-                        <div className="flex justify-center items-center">
+                         {/*Desktop Menu*/}
+                        <div className="flex items-center">
                             <ul className="hidden md:flex flex-1 justify-center items-center gap-12 font-semibold text-base">
                                 <li className="navbar-link">
                                     <a href="/about" className="navbar-link-text">About</a>
@@ -40,27 +39,27 @@ export default function NavBar() {
                         </div>
                     </div>
 
-                    <button onClick={handleToggle} className="md:hidden text-3xl p-2 focus:outline-none" > 
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="black"
-                        className="size-16"
+                    <button onClick={handleOpenMenu} className="md:hidden text-3xl p-2 focus:outline-none">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="black"
+                            className="size-16"
                         >
                             <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                             />
                         </svg>
                     </button>
-                </nav> 
+                </nav>
 
-                {/* Mobile Menu */} 
-                <div className={`md:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-                    <button onClick={handleToggle} className="absolute top-4 left-4 text-2xl focus:outline-none" >
+                {/* Mobile Menu */}
+                <div className={`md:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                    <button onClick={handleOpenMenu} className="absolute top-4 left-4 text-2xl focus:outline-none" >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -86,3 +85,5 @@ export default function NavBar() {
             </div>
     );
 }
+
+export default NavBar;
