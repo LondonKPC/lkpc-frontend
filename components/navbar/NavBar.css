@@ -3,7 +3,7 @@
 }
 
 .navbar-link-text {
-    @apply text-black hover:text-indigo-200 text-lg;
+    @apply text-black hover:text-indigo-200 text-lg mx-8;
 }
 
 .mobile-navbar-link-text {
