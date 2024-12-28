@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "@/components/footer/Footer";
 import HomeGrid from "@/components/home_grid/HomeGrid";
 import "./home.css";
 
