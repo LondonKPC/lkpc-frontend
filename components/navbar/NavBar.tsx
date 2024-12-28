@@ -20,7 +20,7 @@ const NavBar = () => {
                 <nav className="flex items-center text-white py-2 px-4 md:px-8 bg-transparent drop-shadow-md relative">
 
                     <div className="w-full">
-                         {/*Desktop Menu*/}
+                        {/*Desktop Menu*/}
                         <div className="flex items-center">
                             <ul className="hidden md:flex flex-1 justify-center items-center gap-12 font-semibold text-base">
                                 <li className="navbar-link">
