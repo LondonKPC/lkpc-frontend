@@ -3,7 +3,7 @@
 }
 
 .navbar-container {
-    @apply flex w-full h-full justify-center items-center;
+    @apply flex w-full h-full justify-center items-center z-10;
 }
 
 .nav-container {
@@ -12,5 +12,10 @@
 }
 
 .navbar-link {
-    @apply hidden text-black hover:text-indigo-200 sm:flex text-2xl font-mono w-32 flex-col items-center;
+    @apply hidden text-black hover:text-indigo-200 sm:flex text-2xl font-mono w-32 flex-col items-center cursor-pointer
+    transform transition-transform duration-300 hover:scale-110;
+}
+
+.link {
+    @apply flex flex-col items-center justify-center
 }

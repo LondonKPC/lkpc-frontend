@@ -3,16 +3,19 @@
 
 import React, {ReactElement} from "react";
 import Image from "next/image"
+import Link from "next/link";
+import {routeDefinitions} from "@/constants/routeDefinitions";
+
 
 // CSS
 import "./SideBar.css"
 
 // Images
-import XMark from "@/images/xmark.svg"
-import Handshake from "@/images/handshake.svg";
-import Calendar from "@/images/calendar.svg";
-import Contact from "@/images/message.svg";
-import Login from "@/images/login.svg";
+import XMark from "@/images/xmark_white.svg"
+import Handshake from "@/images/handshake_white.svg";
+import Calendar from "@/images/calendar_white.svg";
+import Contact from "@/images/message_white.svg";
+import Login from "@/images/login_white.svg";
 
 
 interface MobileMenuProps {
@@ -35,44 +38,52 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
             </div>
             <nav className="w-full h-full flex flex-col items-center my-4">
                 <div className="sidebar-link">
-                    <Image
-                        className="mx-2"
-                        src={Handshake}
-                        alt="Handshake"
-                        width={30}
-                        height={30}
-                    />
-                    <a>Connect</a>
+                    <Link href={routeDefinitions.connect} className="link">
+                        <Image
+                            className="mx-2"
+                            src={Handshake}
+                            alt="Handshake"
+                            width={30}
+                            height={30}
+                        />
+                        Connect
+                    </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Image
-                        className="mx-2"
-                        src={Calendar}
-                        alt="Events"
-                        width={30}
-                        height={30}
-                    />
-                    <a>Events</a>
+                    <Link href={routeDefinitions.events} className="link">
+                        <Image
+                            className="mx-2"
+                            src={Calendar}
+                            alt="Events"
+                            width={30}
+                            height={30}
+                        />
+                    Events
+                    </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Image
-                        className="mx-2"
-                        src={Contact}
-                        alt="Contact"
-                        width={30}
-                        height={30}
-                    />
-                    <a>Contact</a>
+                    <Link href={routeDefinitions.contact} className="link">
+                        <Image
+                            className="mx-2"
+                            src={Contact}
+                            alt="Contact"
+                            width={30}
+                            height={30}
+                        />
+                        Contact
+                    </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Image
-                        className="mx-2"
-                        src={Login}
-                        alt="Login"
-                        width={30}
-                        height={30}
-                    />
-                    <a>Login</a>
+                    <Link href={routeDefinitions.login} className="link">
+                        <Image
+                            className="mx-2"
+                            src={Login}
+                            alt="Login"
+                            width={30}
+                            height={30}
+                        />
+                        Login
+                    </Link>
                 </div>
             </nav>
         </div>
