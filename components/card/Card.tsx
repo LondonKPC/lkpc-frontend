@@ -1,19 +1,28 @@
-import React from 'react';
+'use client'
 
-type ImageProps = {
+import React, { ReactElement } from 'react';
+import Image from "next/image"
+
+interface ImageProps {
   imgSrc: string
-  title: string
-  alt: string
-
+  imgAlt: string
+  imgWidth: number
+  imgHeight: number
 }
 
-const Events = (props: ImageProps) => {
+const Card: React.FC<ImageProps> = ({imgSrc, imgAlt, imgWidth, imgHeight}): ReactElement => {
   return (
     <div>
-      <img src={props.imgSrc} alt="" className="" />
+      <Image 
+      src={imgSrc}
+      alt={imgAlt}
+      width={imgWidth}
+      height={imgHeight}
+      unoptimized={true}
+      />
       <h1 className=""></h1>
     </div>
   );
 }
 
-export default Events;
+export default Card;
