@@ -19,19 +19,21 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="flex w-full bg-[#18181a] py-14">
-        <div className="px-8 text-[30px] flex-1 text-center">
-          LondonKPC
+      <div className="flex w-full bg-[#18181a] py-14 flex-wrap">
+        <div className="px-8 flex-1 text-center">
+          <p className="text-[20px] md:text-[24px] sm:text-[16px]">LondonKPC</p>
         </div>
-        <div className="px-8 text-[30px] flex-1 text-center">
-          <p>Service</p>
-          <div className="text-[16px]">
-            <p><b>Sunday:</b> 2:15pm - 4:30pm</p>
+        <div className="px-8 flex-1 text-center">
+          <p className="text-[20px] md:text-[24px] sm:text-[16px]">Service</p>
+          <div>
+            <p className="text-[10px] md:text-xl sm:text-lg">
+              Sunday: 2:15pm - 4:30pm
+            </p>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Footer;
