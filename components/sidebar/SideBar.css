@@ -1,7 +1,3 @@
-.mobile-menu {
-    @apply w-full h-20 flex flex-row items-center justify-center;
-}
-
 .sidebar-link {
-    @apply w-12 h-full text-white hover:text-indigo-200 flex items-center justify-center p-4 text-xl font-semibold;
+    @apply w-full h-32 flex-col text-white hover:text-indigo-200 flex items-center justify-center px-6 text-2xl font-mono;
 }

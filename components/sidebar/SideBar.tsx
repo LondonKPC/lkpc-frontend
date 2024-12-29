@@ -33,14 +33,14 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                     height={30}
                 />
             </div>
-            <nav className="flex flex-col items-center my-4">
+            <nav className="w-full h-full flex flex-col items-center my-4">
                 <div className="sidebar-link">
                     <Image
                         className="mx-2"
                         src={Handshake}
                         alt="Handshake"
-                        width={25}
-                        height={25}
+                        width={30}
+                        height={30}
                     />
                     <a>Connect</a>
                 </div>
@@ -49,8 +49,8 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                         className="mx-2"
                         src={Calendar}
                         alt="Events"
-                        width={25}
-                        height={25}
+                        width={30}
+                        height={30}
                     />
                     <a>Events</a>
                 </div>
@@ -59,8 +59,8 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                         className="mx-2"
                         src={Contact}
                         alt="Contact"
-                        width={25}
-                        height={25}
+                        width={30}
+                        height={30}
                     />
                     <a>Contact</a>
                 </div>
@@ -69,8 +69,8 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                         className="mx-2"
                         src={Login}
                         alt="Login"
-                        width={25}
-                        height={25}
+                        width={30}
+                        height={30}
                     />
                     <a>Login</a>
                 </div>

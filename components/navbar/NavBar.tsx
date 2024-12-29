@@ -3,7 +3,7 @@
 
 'use client'
 
-import {useCallback, useState} from "react";
+import {useCallback, useRef, useState} from "react";
 import Image from "next/image";
 import SideBar from "@/components/sidebar/SideBar";
 
@@ -17,15 +17,19 @@ import Handshake from "@/images/handshake.svg"
 import Calendar from "@/images/calendar.svg"
 import Contact from "@/images/message.svg"
 import Login from "@/images/login.svg"
+import {useClickOutside} from "@/hooks/useClickOutside";
 
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const outsideRef = useRef<HTMLDivElement>(null);
     const handleOpenMenu = useCallback(() => {
         setIsMenuOpen((prevState) => !prevState);
     }, []);
 
+    useClickOutside({ ref: outsideRef, callback: () => setIsMenuOpen(false) });
+
     return (
-            <div className="main-container">
+            <div ref={outsideRef} className="main-container">
                 <Image
                     className="absolute left-0 top-0"
                     src={LKPC_Logo}

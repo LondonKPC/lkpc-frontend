@@ -12,5 +12,5 @@
 }
 
 .navbar-link {
-    @apply hidden text-black hover:text-indigo-200 sm:flex text-lg w-32 flex-col items-center;
+    @apply hidden text-black hover:text-indigo-200 sm:flex text-2xl font-mono w-32 flex-col items-center;
 }
