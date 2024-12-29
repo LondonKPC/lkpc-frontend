@@ -1,8 +1,11 @@
+// NavBar.tsx
+// The general navigation bar for desktop view
+
 'use client'
 
-import { useState } from "react";
+import {useCallback, useState} from "react";
 import Image from "next/image";
-import MobileMenu from "@/components/navbar/MobileMenu";
+import SideBar from "@/components/sidebar/SideBar";
 
 // CSS
 import "./NavBar.css";
@@ -16,11 +19,10 @@ import Contact from "@/images/message.svg"
 import Login from "@/images/login.svg"
 
 const NavBar = () => {
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const handleOpenMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const handleOpenMenu = useCallback(() => {
+        setIsMenuOpen((prevState) => !prevState);
+    }, []);
 
     return (
             <div className="main-container">
@@ -74,7 +76,7 @@ const NavBar = () => {
                             <a>Login</a>
                         </div>
                         <Image
-                            className="sm:hidden text-3xl p-2 focus:outline-none"
+                            className={isMenuOpen ? "hidden" : "fixed top-0 right-0 sm:hidden m-1"}
                             onClick={handleOpenMenu}
                             src={Bars}
                             alt="Bars"
@@ -83,7 +85,7 @@ const NavBar = () => {
                         />
                     </nav>
                 </div>
-                <MobileMenu
+                <SideBar
                     isMenuOpen={isMenuOpen}
                     handleOpenMenu={handleOpenMenu}
                 />

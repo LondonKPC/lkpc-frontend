@@ -1,5 +1,13 @@
+// SideBar.tsx
+// The sidebar component for mobile view
+
 import React, {ReactElement} from "react";
 import Image from "next/image"
+
+// CSS
+import "./SideBar.css"
+
+// Images
 import XMark from "@/images/xmark.svg"
 import Handshake from "@/images/handshake.svg";
 import Calendar from "@/images/calendar.svg";
@@ -12,20 +20,21 @@ interface MobileMenuProps {
     handleOpenMenu: () => void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): ReactElement => {
+const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): ReactElement => {
     return (
-        <div className={`md:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-            {/*<Bars onClick={handleOpenMenu} className="absolute top-4 left-4 text-2xl focus:outline-none"/>*/}
-            <Image
-                className="w-[30px] m-2"
-                onClick={handleOpenMenu}
-                src={XMark}
-                alt="Bars"
-                width={20}
-                height={20}
-            />
+        <div className={`sm:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className="flex justify-end">
+                <Image
+                    className="m-2"
+                    onClick={handleOpenMenu}
+                    src={XMark}
+                    alt="Bars"
+                    width={30}
+                    height={30}
+                />
+            </div>
             <nav className="flex flex-col items-center my-4">
-                <div className="mobile-menu-link-text">
+                <div className="sidebar-link">
                     <Image
                         className="mx-2"
                         src={Handshake}
@@ -35,7 +44,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): 
                     />
                     <a>Connect</a>
                 </div>
-                <div className="mobile-menu-link-text">
+                <div className="sidebar-link">
                     <Image
                         className="mx-2"
                         src={Calendar}
@@ -45,7 +54,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): 
                     />
                     <a>Events</a>
                 </div>
-                <div className="mobile-menu-link-text">
+                <div className="sidebar-link">
                     <Image
                         className="mx-2"
                         src={Contact}
@@ -55,7 +64,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): 
                     />
                     <a>Contact</a>
                 </div>
-                <div className="mobile-menu-link-text">
+                <div className="sidebar-link">
                     <Image
                         className="mx-2"
                         src={Login}
@@ -70,4 +79,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): 
     )
 }
 
-export default MobileMenu;
+export default SideBar;

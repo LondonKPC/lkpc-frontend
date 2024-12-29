@@ -7,18 +7,10 @@
 }
 
 .nav-container {
-    @apply h-full absolute right-0 items-end text-white
+    @apply h-full w-full absolute right-0 items-end text-white
     bg-transparent drop-shadow-md justify-end sm:justify-evenly sm:w-3/4 sm:relative sm:flex;
 }
 
 .navbar-link {
-    @apply hidden text-black hover:text-indigo-200 text-lg w-32 flex-col sm:flex items-center;
-}
-
-.mobile-menu {
-    @apply w-full h-20 flex flex-row items-center justify-center;
-}
-
-.mobile-menu-link-text {
-    @apply text-white hover:text-indigo-200 w-full h-full flex items-center justify-center p-4 text-xl font-semibold;
+    @apply hidden text-black hover:text-indigo-200 sm:flex text-lg w-32 flex-col items-center;
 }
