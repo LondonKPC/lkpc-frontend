@@ -3,7 +3,7 @@ import Home from "./home/page";
 
 export default function Main(): React.ReactNode {
   return (
-    <main>
+    <main className="h-full">
       <Home />
     </main>
   );
