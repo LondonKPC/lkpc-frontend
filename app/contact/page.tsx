@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Contact() {
+const Contact = () => {
   return (
     <div className="w-full h-full bg-white flex flex-col items-center">
       <div className="w-[95%] h-[50%] bg-[#48a4c9] mt-16 relative opacity-80">
@@ -11,7 +11,7 @@ export default function Contact() {
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-2">
           <p className="text-3xl font-bold">
-            Get in touch...
+            Get in touch
           </p>
           <p className="text-xl">
             If you have any questions or concerns, we are here to help.
@@ -33,3 +33,5 @@ export default function Contact() {
     </div>
   );
 }
+
+export default Contact;
