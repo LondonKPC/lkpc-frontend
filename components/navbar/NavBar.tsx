@@ -31,6 +31,30 @@ const NavBar = () => {
     useClickOutside({ ref: outsideRef, callback: () => setIsMenuOpen(false) });
 
     return (
+            <div className="w-full h-1/12 bg-transparent fixed z-50">
+                {/* Desktop Menu */}
+                <a href="/home" className="fixed z-10 hover:scale-105 transition-all rounded-full">
+                    <img src={LKPC_Logo.src} alt="LKPC Logo" className="w-20 h-20 rounded-full" />
+                </a>
+                <nav className="flex items-center text-white py-2 px-4 md:px-8 bg-transparent drop-shadow-md relative">
+
+                    <div className="w-full">
+                        {/*Desktop Menu*/}
+                        <div className="flex items-center">
+                            <ul className="hidden md:flex flex-1 justify-center items-center gap-12 font-semibold text-base">
+                                <li className="navbar-link">
+                                    <a href="/about" className="navbar-link-text">About</a>
+                                </li>
+                                <li className="navbar-link">
+                                    <a href="/connect" className="navbar-link-text">Connect</a>
+                                </li>
+                                <li className="navbar-link">
+                                    <a href="/event" className="navbar-link-text">Events</a>
+                                </li>
+                                <li className="navbar-link">
+                                    <a href="/contact" className="navbar-link-text">Contact</a>
+                                </li>
+                            </ul>
             <div ref={outsideRef} className="main-container">
                 <Link href={routeDefinitions.home}>
                     <Image
