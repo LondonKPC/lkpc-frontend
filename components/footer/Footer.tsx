@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Discord from "@/images/discord.svg";
-import Instagram from "@/images/instagram.svg";
-import Email from "@/images/email.svg";
+import Discord from "@/images/icons/discord.svg";
+import Instagram from "@/images/icons/instagram.svg";
+import Email from "@/images/icons/email.svg";
 
 const Footer = () => {
   return (

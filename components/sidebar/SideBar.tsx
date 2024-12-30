@@ -10,12 +10,12 @@ import {routeDefinitions} from "@/constants/routeDefinitions";
 // CSS
 import "./SideBar.css"
 
-// Images
-import XMark from "@/images/xmark_white.svg"
-import Handshake from "@/images/handshake_white.svg";
-import Calendar from "@/images/calendar_white.svg";
-import Contact from "@/images/message_white.svg";
-import Login from "@/images/login_white.svg";
+// Images/icons
+import XMark from "@/images/icons/xmark_white.svg"
+import Handshake from "@/images/icons/handshake_white.svg";
+import Calendar from "@/images/icons/calendar_white.svg";
+import Contact from "@/images/icons/message_white.svg";
+import Login from "@/images/icons/login_white.svg";
 
 
 interface MobileMenuProps {
