@@ -37,7 +37,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{secrets.AWS_GITHUB_ROLE_ARN}}
-          aws-region: ${{env.AWS_REGION}}  # Pass AWS_REGION from environment variables
+          aws-region: us-east-2
 
       # Deploy to S3
       - name: Deploy to S3
