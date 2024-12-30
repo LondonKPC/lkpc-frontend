@@ -8,13 +8,13 @@ const Footer = () => {
     <div>
       <div className="bg-[#7a7c7b] w-full h-[50px] flex items-center justify-center">
         <div className="flex gap-4">
-          <a href="https://www.roblox.com/home" className="w-[24px] h-[24px] inline-block z-50">
+          <a href="https://example.com" className="w-[24px] h-[24px] inline-block">
             <img src={email.src} className="w-full h-full hover:opacity-30" />
           </a>
-          <a href="https://www.roblox.com/home" className="w-[24px] h-[24px] inline-block z-50">
+          <a href="https://example.com" className="w-[24px] h-[24px] inline-block">
             <img src={insta.src} className="w-full h-full hover:opacity-30" />
           </a>
-          <a href="https://www.roblox.com/home" className="w-[24px] h-[24px] inline-block z-50">
+          <a href="https://example.com" className="w-[24px] h-[24px] inline-block">
             <img src={disc.src} className="w-full h-full hover:opacity-30" />
           </a>
         </div>
