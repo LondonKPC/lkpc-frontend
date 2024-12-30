@@ -38,7 +38,7 @@ jobs:
           if [ "${{ github.ref_name }}" == "main" ]; then
             echo "BUCKET_NAME=lkpc-bucket-hosting-prod" >> $GITHUB_ENV
             echo "ROLE_NAME=GithubActionRole-prod" >> $GITHUB_ENV
-            echo "AWS_REGION=us-east-1" >> $GITHUB_ENV  # Set region for prod
+            echo "AWS_REGION=us-east-2" >> $GITHUB_ENV  # Set region for prod
           else
             echo "BUCKET_NAME=lkpc-bucket-hosting-dev" >> $GITHUB_ENV
             echo "ROLE_NAME=GithubActionRole-dev" >> $GITHUB_ENV
