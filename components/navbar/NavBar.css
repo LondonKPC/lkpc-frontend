@@ -1,15 +1,21 @@
+.main-container {
+    @apply fixed w-full h-16 bg-transparent justify-center items-center;
+}
+
+.navbar-container {
+    @apply flex w-full h-full justify-center items-center z-10;
+}
+
+.nav-container {
+    @apply h-full w-full absolute right-0 items-end text-white space-x-4
+    bg-transparent drop-shadow-md justify-end sm:justify-center sm:w-3/4 sm:relative sm:flex;
+}
+
 .navbar-link {
-    @apply p-3 hover:text-indigo-200 rounded-md transition-all cursor-pointer;
+    @apply hidden text-black hover:text-indigo-200 sm:flex text-2xl font-mono w-32 flex-col items-center cursor-pointer
+    transform transition-transform duration-300 hover:scale-110;
 }
 
-.navbar-link-text {
-    @apply text-black hover:text-indigo-200 text-lg mx-8;
-}
-
-.mobile-navbar-link-text {
-    @apply text-white hover:text-indigo-200 text-lg;
-}
-
-.mobile-navbar-link {
-    @apply py-12 px-10 transition-all cursor-pointer;
+.link {
+    @apply flex flex-col items-center justify-center
 }

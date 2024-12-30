@@ -1,87 +1,110 @@
+// NavBar.tsx
+// The general navigation bar for desktop view
+
 'use client'
 
-import { useState } from "react";
-import LKPC_Logo from "@/public/LKPC_Logo.png";
+import {useCallback, useRef, useState} from "react";
+import Link from "next/link";
+import Image from "next/image";
+import SideBar from "@/components/sidebar/SideBar";
+import {routeDefinitions} from "@/constants/routeDefinitions";
+
+// CSS
 import "./NavBar.css";
 
-const NavBar = () => {
+// Images
+import LKPC_Logo from "@/images/LKPC_Logo.svg";
+import Bars from "@/images/bars.svg"
+import Handshake from "@/images/handshake.svg"
+import Calendar from "@/images/calendar.svg"
+import Contact from "@/images/message.svg"
+import Login from "@/images/login.svg"
+import {useClickOutside} from "@/hooks/useClickOutside";
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const handleOpenMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+const NavBar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const outsideRef = useRef<HTMLDivElement>(null);
+    const handleOpenMenu = useCallback(() => {
+        setIsMenuOpen((prevState) => !prevState);
+    }, []);
+
+    useClickOutside({ ref: outsideRef, callback: () => setIsMenuOpen(false) });
 
     return (
-            <div className="w-full h-full bg-transparent fixed">
-                {/* Desktop Menu */}
-                <a href="/home" className="fixed z-10 hover:scale-105 transition-all rounded-full">
-                    <img src={LKPC_Logo.src} alt="LKPC Logo" className="w-20 h-20 rounded-full" />
-                </a>
-                <nav className="flex items-center text-white py-2 px-4 md:px-8 bg-transparent drop-shadow-md relative">
-
-                    <div className="w-full">
-                        {/*Desktop Menu*/}
-                        <div className="flex items-center">
-                            <ul className="hidden md:flex flex-1 justify-center items-center gap-12 font-semibold text-base">
-                                <li className="navbar-link">
-                                    <a href="/about" className="navbar-link-text">About</a>
-                                </li>
-                                <li className="navbar-link">
-                                    <a href="/connect" className="navbar-link-text">Connect</a>
-                                </li>
-                                <li className="navbar-link">
-                                    <a href="/event" className="navbar-link-text">Events</a>
-                                </li>
-                                <li className="navbar-link">
-                                    <a href="/contact" className="navbar-link-text">Contact</a>
-                                </li>
-                            </ul>
+            <div ref={outsideRef} className="main-container">
+                <Link href={routeDefinitions.home}>
+                    <Image
+                        className="absolute left-0 top-0 z-20 rounded-full transform transition-transform duration-300 hover:scale-110"
+                        src={LKPC_Logo}
+                        alt="Logo"
+                        width={80}
+                        height={80}
+                    />
+                </Link>
+                <div className="navbar-container">
+                    <nav className="nav-container">
+                        <div className="navbar-link">
+                            <Link href={routeDefinitions.connect} className="link">
+                                <Image
+                                    className="mx-1 md:mx-2"
+                                    src={Handshake}
+                                    alt="Handshake"
+                                    width={25}
+                                    height={25}
+                                />
+                                Connect
+                            </Link>
                         </div>
-                    </div>
-
-                    <button onClick={handleOpenMenu} className="md:hidden text-3xl p-2 focus:outline-none">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="black"
-                            className="size-16"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                            />
-                        </svg>
-                    </button>
-                </nav>
-
-                {/* Mobile Menu */}
-                <div className={`md:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-                    <button onClick={handleOpenMenu} className="absolute top-4 left-4 text-2xl focus:outline-none" >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="white"
-                        className="size-16"
-                        >
-                            <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                            />
-                        </svg>
-                    </button>
-                    <nav className="flex flex-col items-center mt-32">
-                        <a href="/about" className="mobile-navbar-link mobile-navbar-link-text">About</a>
-                        <a href="/connect" className="mobile-navbar-link mobile-navbar-link-text">Connect</a>
-                        <a href="/event" className="mobile-navbar-link mobile-navbar-link-text">Events</a>
-                        <a href="/contact" className="mobile-navbar-link mobile-navbar-link-text">Contact</a>
+                        <div className="navbar-link">
+                            <Link href={routeDefinitions.events} className="link">
+                                <Image
+                                    className="mx-1 md:mx-2"
+                                    src={Calendar}
+                                    alt="Events"
+                                    width={25}
+                                    height={25}
+                                />
+                                Events
+                            </Link>
+                        </div>
+                        <div className="navbar-link">
+                            <Link href={routeDefinitions.contact} className="link">
+                                <Image
+                                    className="mx-1 md:mx-2"
+                                    src={Contact}
+                                    alt="Contact"
+                                    width={25}
+                                    height={25}
+                                />
+                                Contact
+                            </Link>
+                        </div>
+                        <div className="navbar-link">
+                            <Link href={routeDefinitions.login} className="link">
+                                <Image
+                                    className="mx-1 md:mx-2"
+                                    src={Login}
+                                    alt="Login"
+                                    width={25}
+                                    height={25}
+                                />
+                                Login
+                            </Link>
+                        </div>
+                        <Image
+                            className={isMenuOpen ? "hidden" : "fixed top-0 right-0 sm:hidden m-1"}
+                            onClick={handleOpenMenu}
+                            src={Bars}
+                            alt="Bars"
+                            width={50}
+                            height={50}
+                        />
                     </nav>
                 </div>
+                <SideBar
+                    isMenuOpen={isMenuOpen}
+                    handleOpenMenu={handleOpenMenu}
+                />
             </div>
     );
 }
