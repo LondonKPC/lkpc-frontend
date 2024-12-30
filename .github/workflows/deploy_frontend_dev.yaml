@@ -32,24 +32,17 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      - name: Print debug information
-        run: |
-          echo "AWS Region: ${{ secrets.AWS_REGION }}"
-          echo "GitHub Ref: ${{ github.ref }}"
-          echo "GitHub Environment: ${{ github.environment }}"
-          echo "Environment Variables: ${{ toJson(env) }}"
-
       # Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{secrets.PROFILE_ID}}:role/GithubActionRole-${{ github.environment }}
-          aws-region: us-east-2
+          role-to-assume: arn:aws:iam::${{secrets.PROFILE_ID}}:role/GithubActionRole-${{runner.environment}}
+          aws-region: ${{vars.AWS_REGION}}
 
       # Deploy to S3
       - name: Deploy to S3
         run: |
-          aws s3 sync out/ s3://${{secrets.BUCKET_NAME}} --delete
+          aws s3 sync out/ s3://${{vars.BUCKET_NAME}} --delete
 
       # Invalidate CloudFront cache
       - name: Invalidate CloudFront cache
