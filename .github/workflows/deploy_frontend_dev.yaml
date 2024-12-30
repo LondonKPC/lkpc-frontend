@@ -1,3 +1,4 @@
+
 name: Deploy lkpc-frontend to S3
 
 # Triggers on push to main and dev branches
@@ -33,16 +34,19 @@ jobs:
       - name: Build the app
         run: npm run build
 
+      # Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.PROFILE_ID }}:role/GithubActionRole${{ github.environment }}
-          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.PROFILE_ID }}:role/${{ github.environment == 'prod' && 'GithubActionRole-prod' || 'GithubActionRole-dev' }}
+          aws-region: ${{ env.AWS_REGION }}  # AWS_REGION from the environment
 
+      # Deploy to S3
       - name: Deploy to S3
         run: |
-          aws s3 sync out/ s3://lkpc-bucket-hosting-dev --delete
+          aws s3 sync out/ s3://${{ env.BUCKET_NAME }} --delete
 
-      - name: Invalidate Cloudfront cache
+      # Invalidate CloudFront cache
+      - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
