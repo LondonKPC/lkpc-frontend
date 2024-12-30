@@ -21,6 +21,7 @@ jobs:
           echo "Environment: ${{ vars.ENVIRONMENT }}"
           echo "Environment Variables: ${{ toJson(vars) }}"
           echo "AWS Region: ${{ vars.AWS_REGION }}"
+          echo `role-to-assume: arn:aws:iam::${{ secrets.PROFILE_ID }}:role/GithubActionRole-${{ vars.ENVIRONMENT }}`
     
       - name: Git clone the repository
         uses: actions/checkout@v4
