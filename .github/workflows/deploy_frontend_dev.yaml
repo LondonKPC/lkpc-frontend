@@ -35,12 +35,11 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::195275645861:role/GithubActionRole
-          session-name: "github-to-s3"
           aws-region: us-east-2
 
       - name: Deploy to S3
         run: |
-          aws s3 sync out/ s3://lkpc-hosting-dev --delete
+          aws s3 sync out/ s3://lkpc-bucket-hosting-dev --delete
 
       - name: Invalidate Cloudfront cache
         run: |
