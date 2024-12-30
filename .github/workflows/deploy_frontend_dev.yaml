@@ -17,10 +17,10 @@ jobs:
     steps:
       - name: Print debug information
         run: |
-          echo "AWS Region: ${{ vars.AWS_REGION }}"
           echo "GitHub Ref: ${{ github.ref }}"
-          echo "Job Environment: ${{ job.environment }}"
+          echo "Environment: ${{ vars.ENVIRONMENT }}"
           echo "Environment Variables: ${{ toJson(vars) }}"
+          echo "AWS Region: ${{ vars.AWS_REGION }}"
     
       - name: Git clone the repository
         uses: actions/checkout@v4
@@ -43,15 +43,15 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{secrets.PROFILE_ID}}:role/GithubActionRole-${{runner.environment}}
-          aws-region: ${{vars.AWS_REGION}}
+          role-to-assume: arn:aws:iam::${{ secrets.PROFILE_ID }}:role/GithubActionRole-${{ vars.ENVIRONMENT }}
+          aws-region: ${{ vars.AWS_REGION }}
 
       # Deploy to S3
       - name: Deploy to S3
         run: |
-          aws s3 sync out/ s3://${{vars.BUCKET_NAME}} --delete
+          aws s3 sync out/ s3://${{ vars.BUCKET_NAME }} --delete
 
       # Invalidate CloudFront cache
       - name: Invalidate CloudFront cache
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{secrets.DISTRIBUTION_ID}} --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
