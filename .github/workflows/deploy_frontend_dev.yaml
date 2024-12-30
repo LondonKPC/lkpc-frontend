@@ -4,6 +4,7 @@ name: Deploy lkpc-frontend to S3
 on:
   push:
     branches:
+      - main
       - dev
 
 permissions:
@@ -13,6 +14,7 @@ permissions:
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'prod' || github.ref_name == 'dev' && 'dev' }}
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v4
@@ -34,8 +36,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::195275645861:role/GithubActionRole
-          aws-region: us-east-2
+          role-to-assume: arn:aws:iam::${{ secret.PROFILE_ID }}:role/GithubActionRole${{ github.environment }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Deploy to S3
         run: |
@@ -43,4 +45,4 @@ jobs:
 
       - name: Invalidate Cloudfront cache
         run: |
-          aws cloudfront create-invalidation --distribution-id "E2H9GY177HC95P" --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secret.DISTRIBUTION_ID }} --paths "/*"
