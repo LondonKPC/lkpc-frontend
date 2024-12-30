@@ -1,6 +1,4 @@
 
-name: Deploy lkpc-frontend to S3
-
 # Triggers on push to main and dev branches
 on:
   push:
@@ -34,12 +32,25 @@ jobs:
       - name: Build the app
         run: npm run build
 
+      # Set environment-specific variables
+      - name: Set environment-specific variables
+        run: |
+          if [ "${{ github.ref_name }}" == "main" ]; then
+            echo "BUCKET_NAME=lkpc-bucket-hosting-prod" >> $GITHUB_ENV
+            echo "ROLE_NAME=GithubActionRole-prod" >> $GITHUB_ENV
+            echo "AWS_REGION=us-east-1" >> $GITHUB_ENV  # Set region for prod
+          else
+            echo "BUCKET_NAME=lkpc-bucket-hosting-dev" >> $GITHUB_ENV
+            echo "ROLE_NAME=GithubActionRole-dev" >> $GITHUB_ENV
+            echo "AWS_REGION=us-east-2" >> $GITHUB_ENV  # Set region for dev
+          fi
+
       # Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.PROFILE_ID }}:role/${{ github.environment == 'prod' && 'GithubActionRole-prod' || 'GithubActionRole-dev' }}
-          aws-region: ${{ env.AWS_REGION }}  # AWS_REGION from the environment
+          role-to-assume: arn:aws:iam::${{ secrets.PROFILE_ID }}:role/${{ env.ROLE_NAME }}
+          aws-region: ${{ env.AWS_REGION }}  # Pass AWS_REGION from environment variables
 
       # Deploy to S3
       - name: Deploy to S3
