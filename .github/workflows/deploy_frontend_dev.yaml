@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "AWS Region: ${{ vars.AWS_REGION }}"
           echo "GitHub Ref: ${{ github.ref }}"
-          echo "GitHub Environment: ${{ github.env }}"
+          echo "Job Environment: ${{ job.environment }}"
           echo "Environment Variables: ${{ toJson(vars) }}"
     
       - name: Git clone the repository
