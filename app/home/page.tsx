@@ -7,7 +7,6 @@ function Home() {
         <div className="w-1/2 bg-slate-700 float-left text-center">
             Home...
         </div>
-        
       </div>
     </div>
   )

@@ -1,7 +1,8 @@
-import React from 'react';
-import disc from "@/public/discord.png";
-import insta from "@/public/insta.png";
-import email from "@/public/email.png";
+import React from "react";
+import Image from "next/image";
+import Discord from "@/images/discord.svg";
+import Instagram from "@/images/instagram.svg";
+import Email from "@/images/email.svg";
 
 const Footer = () => {
   return (
@@ -23,17 +24,21 @@ const Footer = () => {
         <div className="px-8 flex-1 text-center">
           <p className="text-[20px] md:text-[24px] sm:text-[16px]">LondonKPC</p>
         </div>
-        <div className="px-8 flex-1 text-center">
-          <p className="text-[20px] md:text-[24px] sm:text-[16px]">Service</p>
-          <div>
-            <p className="text-[10px] md:text-xl sm:text-lg">
-              Sunday: 2:15pm - 4:30pm
-            </p>
+        <div className="flex w-full bg-[#18181a] py-14 flex-wrap">
+          <div className="px-8 flex-1 text-center">
+            <p className="text-[20px] md:text-[24px] sm:text-[16px]">LondonKPC</p>
+          </div>
+          <div className="px-8 flex-1 text-center">
+            <p className="text-[20px] md:text-[24px] sm:text-[16px]">Service</p>
+            <div>
+              <p className="text-[10px] md:text-xl sm:text-lg">
+                Sunday: 2:15pm - 4:30pm
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
-};
+}
 
 export default Footer;
