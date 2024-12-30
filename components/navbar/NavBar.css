@@ -7,8 +7,8 @@
 }
 
 .nav-container {
-    @apply h-full w-full absolute right-0 items-end text-white
-    bg-transparent drop-shadow-md justify-end sm:justify-evenly sm:w-3/4 sm:relative sm:flex;
+    @apply h-full w-full absolute right-0 items-end text-white space-x-4
+    bg-transparent drop-shadow-md justify-end sm:justify-center sm:w-3/4 sm:relative sm:flex;
 }
 
 .navbar-link {

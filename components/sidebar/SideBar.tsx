@@ -36,7 +36,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                     height={30}
                 />
             </div>
-            <nav className="w-full h-full flex flex-col items-center my-4">
+            <nav className="w-full h-full flex flex-col items-center my-4 space-y-8">
                 <div className="sidebar-link">
                     <Link href={routeDefinitions.connect} className="link">
                         <Image

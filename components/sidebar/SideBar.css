@@ -1,7 +1,7 @@
 .sidebar-link {
-    @apply w-full h-32 flex-col text-white hover:text-indigo-200 flex items-center justify-center px-6 text-2xl font-mono;
+    @apply w-full flex-col text-white hover:text-indigo-200 flex items-center justify-center px-6 text-2xl font-mono;
 }
 
 .link {
-    @apply flex flex-col items-center justify-center
+    @apply w-full flex flex-col items-center justify-center
 }
