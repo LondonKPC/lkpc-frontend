@@ -36,7 +36,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{ secret.PROFILE_ID }}:role/GithubActionRole${{ github.environment }}
+          role-to-assume: arn:aws:iam::${{ secrets.PROFILE_ID }}:role/GithubActionRole${{ github.environment }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Deploy to S3
@@ -45,4 +45,4 @@ jobs:
 
       - name: Invalidate Cloudfront cache
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secret.DISTRIBUTION_ID }} --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
