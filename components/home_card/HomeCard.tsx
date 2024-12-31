@@ -7,7 +7,7 @@ interface HomeCardProps {
   description: string;
 }
 
-const HomeCard: React.FC<HomeCardProps> = ({ imageSrc,title, description }) => {
+const HomeCard: React.FC<HomeCardProps> = ({ imageSrc, title, description }) => {
   return (
     <div className="max-w-sm rounded-lg shadow-lg bg-white">
       <Image src={imageSrc} alt="Card Image" className="w-full rounded-t-lg" />
