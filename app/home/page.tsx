@@ -8,7 +8,7 @@ import box4 from "@/images/boxes/box4.jpg";
 
 function Home() {
   return (
-    <div className="h-full w-full flex justify-center">
+    <div className="flex justify-center">
       <div
         className="flex justify-center bg-cover w-full md:bg-full bg-center"
         style={{ backgroundImage: `url(${background.src})` }}
