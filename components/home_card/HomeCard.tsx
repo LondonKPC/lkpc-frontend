@@ -1,3 +1,6 @@
+// HomeCard.tsx
+// Contains image, title and description of the about us information
+
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 
