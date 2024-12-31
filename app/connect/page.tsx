@@ -11,7 +11,7 @@ export default function Connect() {
                 {/* Desktop */}
                 <div className="bg-white w-full h-full bg-opacity-50">
                   <div className="flex flex-col items-center justify-center my-52">
-                    <h1 className="text-white text-4xl font-bold">Connect With Us</h1>
+                    <h1 className="text-center text-white text-4xl font-bold">Connect With Us</h1>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2">
                       <ConnectCard groupName="HI-C" groupDescription="Gr. 7-12"/>
                       <ConnectCard groupName="CU" groupDescription="College &  University" />
