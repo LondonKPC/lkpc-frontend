@@ -1,6 +1,6 @@
 import React from "react";
 import HomeCard from "@/components/home_card/HomeCard";
-import background from "@/images/background.png";
+import background from "@/images/home_background.png";
 import box1 from "@/images/boxes/box1.jpg";
 import box2 from "@/images/boxes/box2.jpg";
 import box3 from "@/images/boxes/box3.jpg";
@@ -21,15 +21,15 @@ function Home() {
               <HomeCard
                 imageSrc={box1}
                 title="About Us"
-                description="ioaj ieojsoeifja osejfaoi jfoiajf ojoaisjefoiajsoifjaois jefoiajes oijfeiojas oijoi joesjoije oijefoaijfioaefj ioajsef ioajoifjaoisjfoiaejs foaijoijfaoijaoij"
+                description="Text Here"
               />
               <HomeCard
                 imageSrc={box2}
                 title="Our Mission"
-                description="Gr. 7-12"
+                description="Text Here"
               />
-              <HomeCard imageSrc={box3} title="Hello" description="Gr. 7-12" />
-              <HomeCard imageSrc={box4} title="Hello" description="Gr. 7-12" />
+              <HomeCard imageSrc={box3} title="Title" description="Text here" />
+              <HomeCard imageSrc={box4} title="Title" description="Text here" />
             </div>
           </div>
         </div>

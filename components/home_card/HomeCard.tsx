@@ -15,7 +15,7 @@ const HomeCard: React.FC<HomeCardProps> = ({ imageSrc, title, description }) => 
     <div className="max-w-sm rounded-lg shadow-lg bg-white">
       <Image src={imageSrc} alt="Card Image" className="w-full rounded-t-lg" />
       <div className="px-4 py-4">
-        <h1 className="text-gray-900 font-bold text-xl">{title}</h1>
+        <h1 className="text-center text-gray-900 font-bold text-xl">{title}</h1>
         <p className="text-gray-700 text-base">{description}</p>
       </div>
     </div>
