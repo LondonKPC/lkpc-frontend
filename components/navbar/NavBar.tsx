@@ -31,7 +31,7 @@ const NavBar = () => {
     useClickOutside({ ref: outsideRef, callback: () => setIsMenuOpen(false) });
 
     return (
-            <div ref={outsideRef} className="main-container">
+            <div ref={outsideRef} className="main-container z-50">
                 <Link href={routeDefinitions.home}>
                     <Image
                         className="absolute left-0 top-0 z-20 rounded-full transform transition-transform duration-300 hover:scale-110"
