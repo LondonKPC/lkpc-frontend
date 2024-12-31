@@ -25,7 +25,7 @@ interface MobileMenuProps {
 
 const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): ReactElement => {
     return (
-        <div className={`sm:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className={`sm:hidden fixed top-0 right-0 z-30 w-64 h-full bg-gray-800 text-white transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="flex justify-end">
                 <Image
                     className="m-2"
