@@ -5,7 +5,6 @@ import ConnectCard from '@/components/connect_card/ConnectCard';
 
 export default function Connect() {
   return (
-
       <div className="flex justify-center items-center w-full min-h-screen bg-cover md:bg-full bg-center" style={{ backgroundImage: `url(${churchBackground.src})` }}>
           {/* Desktop */}
           <div className="bg-white w-full min-h-screen bg-opacity-50">
