@@ -13,12 +13,12 @@ import {routeDefinitions} from "@/constants/routeDefinitions";
 import "./NavBar.css";
 
 // Images
-import LKPC_Logo from "@/images/LKPC_Logo.svg";
-import Bars from "@/images/bars.svg"
-import Handshake from "@/images/handshake.svg"
-import Calendar from "@/images/calendar.svg"
-import Contact from "@/images/message.svg"
-import Login from "@/images/login.svg"
+import LKPC_Logo from "@/images/icons/LKPC_Logo.svg";
+import Bars from "@/images/icons/bars.svg"
+import Handshake from "@/images/icons/handshake.svg"
+import Calendar from "@/images/icons/calendar.svg"
+import Contact from "@/images/icons/message.svg"
+import Login from "@/images/icons/login.svg"
 import {useClickOutside} from "@/hooks/useClickOutside";
 
 const NavBar = () => {
