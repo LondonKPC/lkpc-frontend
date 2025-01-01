@@ -3,16 +3,25 @@ import {Group} from "@/constants/constants";
 import Image, {StaticImageData} from "next/image";
 
 interface EventCardProps {
-    imageSrc: StaticImageData
-    eventTitle: string
-    groups: Group[]
-    startDate: string
-    endDate: string
+    isModalOpen: boolean;
+    handleEventClick: () => void;
+    imageSrc: StaticImageData;
+    eventTitle: string;
+    groups: Group[];
+    startDate: string;
+    endDate: string;
 }
 
-const EventCard: React.FC<EventCardProps> = ({ imageSrc, eventTitle, groups, startDate, endDate }): ReactElement => {
+const EventCard: React.FC<EventCardProps> = ({ isModalOpen, handleEventClick, imageSrc, eventTitle, groups, startDate, endDate }): ReactElement => {
+    const openModal = () => {
+        if (!isModalOpen) {
+            handleEventClick();
+        }
+    }
     return (
-        <div className="flex flex-col w-full h-32 sm:w-3/4 lg:w-1/2 sm:h-36 bg-sky-950 rounded-lg">
+        <div className="flex flex-col w-full h-32 sm:w-3/4 lg:w-1/2 sm:h-36 bg-sky-950 rounded-lg cursor-pointer"
+            onClick={openModal}
+        >
             <div className="h-full flex px-2 sm:text-lg">
                 {groups.join(", ")}
             </div>
