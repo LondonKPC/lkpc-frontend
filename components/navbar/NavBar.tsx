@@ -32,11 +32,10 @@ const NavBar = () => {
 
     return (
             <div ref={outsideRef} className="main-container">
-                <Link href={routeDefinitions.home}>
+                <Link href={routeDefinitions.home} onClick={() => isMenuOpen && setIsMenuOpen(false)}>
                     <Image
                         className="absolute left-0 top-0 z-20 rounded-full transform transition-transform duration-300 hover:scale-110"
                         src={LKPC_Logo}
-                        onClick={handleOpenMenu}
                         alt="Logo"
                         width={80}
                         height={80}
