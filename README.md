@@ -41,7 +41,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 `Events`
 - Information about upcoming events
 - General events
-- Group events
+- Constants events
 - Users can create group events
   - `name`
   - `description`
@@ -51,8 +51,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - Admins can create general events
 
 `Connect`
-- Group information (ex. Sunday school, Hi-C, CU, Adults)
-- Group leader information
+- Constants information (ex. Sunday school, Hi-C, CU, Adults)
+- Constants leader information
   - Users can modify the leader information for the group
   - Admins can modify all groups
 
