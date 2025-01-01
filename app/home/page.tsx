@@ -8,9 +8,8 @@ import box4 from "@/images/boxes/box4.jpg";
 
 function Home() {
   return (
-    <div className="flex justify-center">
       <div
-        className="flex justify-center bg-cover w-full md:bg-full bg-center"
+        className="flex justify-center bg-cover w-full min-h-full md:bg-full bg-center"
         style={{ backgroundImage: `url(${background.src})` }}
       >
         {/* Desktop */}
@@ -34,7 +33,6 @@ function Home() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
