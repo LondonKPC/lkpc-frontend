@@ -38,7 +38,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
             </div>
             <nav className="w-full h-full flex flex-col items-center my-4 space-y-8">
                 <div className="sidebar-link">
-                    <Link href={routeDefinitions.connect} className="link">
+                    <Link href={routeDefinitions.connect} onClick={handleOpenMenu} className="link">
                         <Image
                             className="mx-2"
                             src={Handshake}
@@ -50,7 +50,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                     </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Link href={routeDefinitions.events} className="link">
+                    <Link href={routeDefinitions.events} onClick={handleOpenMenu} className="link">
                         <Image
                             className="mx-2"
                             src={Calendar}
@@ -62,7 +62,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                     </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Link href={routeDefinitions.contact} className="link">
+                    <Link href={routeDefinitions.contact} onClick={handleOpenMenu} className="link">
                         <Image
                             className="mx-2"
                             src={Contact}
@@ -74,7 +74,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                     </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Link href={routeDefinitions.login} className="link">
+                    <Link href={routeDefinitions.login} onClick={handleOpenMenu} className="link">
                         <Image
                             className="mx-2"
                             src={Login}
