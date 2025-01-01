@@ -6,11 +6,11 @@ import {Group} from "@/constants/constants";
 // Images
 import Bible from "@/images/bible.svg"
 import Calendar from "@/images/calendar.svg"
+import events_background from "@/images/event_background.png"
 
 export default function Events() {
-
     return (
-        <main className="min-h-full p-2">
+        <main className="min-h-full p-2 bg-cover" style={{ backgroundImage: `url(${events_background.src})` }}>
             <div className="my-24">
                 <div className="flex flex-col items-center justify-center text-center m-4">
                     <h1 className="font-bold text-3xl text-black">Events</h1>
