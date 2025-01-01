@@ -10,11 +10,11 @@ import Calendar from "@/images/calendar.svg"
 export default function Events() {
 
     return (
-        <main className="p-2">
-            <div className="w-full mt-40">
-                <div className="w-full items-center justify-center">
+        <main className="h-full p-2">
+            <div className="my-24">
+                <div className="flex flex-col items-center justify-center text-center m-4">
                     <h1 className="font-bold text-3xl text-black">Events</h1>
-                    <hr className="border-1 border-gray-400"/>
+                    <hr className="w-full sm:w-1/2 lg:w-1/4 border-1 border-gray-700"/>
                 </div>
                 <div className="flex flex-col items-center justify-center space-y-2">
                     <EventCard
