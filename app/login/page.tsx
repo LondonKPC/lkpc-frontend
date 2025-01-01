@@ -18,7 +18,7 @@ function Login() {
   return (
     <div className="h-screen flex justify-center items-center">
       <div
-        className="flex justify-center items-center w-full h-full bg-cover bg-center"
+        className="flex justify-center items-center w-full h-full bg-cover bg-center z-0"
         style={{
           backgroundImage: `linear-gradient(to left, rgba(61, 72, 104, 0.6), rgba(61, 72, 104, 255) 50%),
             url(${churchBackground.src})`,
