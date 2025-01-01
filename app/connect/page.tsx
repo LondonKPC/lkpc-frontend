@@ -1,6 +1,6 @@
 import React from 'react';
 import churchBackground from '@/images/church.jpg';
-import ConnectCard from '@/components/connectCard/ConnectCard';
+import ConnectCard from '@/components/connect_card/ConnectCard';
 
 
 export default function Connect() {
