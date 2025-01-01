@@ -9,12 +9,13 @@ interface EventCardProps {
     setSelectedEventId: (eventId: number | null) => void;
     imageSrc: StaticImageData;
     eventTitle: string;
-    groups: Group[];
     startDate: string;
     endDate: string;
+    groups: Group[];
+    location: string;
 }
 
-const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSelectedEventId, imageSrc, eventTitle, groups, startDate, endDate }): ReactElement => {
+const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSelectedEventId, imageSrc, eventTitle, startDate, endDate, groups, location }): ReactElement => {
     const handleEventClick = useCallback(() => {
         setSelectedEventId(eventId);
     }, [eventId, setSelectedEventId]);
@@ -23,9 +24,9 @@ const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSele
         setSelectedEventId(null);
     }, [setSelectedEventId]);
     return (
-        <div className="w-full justify-center">
+        <div className="flex w-full justify-center items-center">
             <div
-                className="flex flex-col w-full h-32 sm:w-3/4 lg:w-1/2 sm:h-36 bg-sky-950 rounded-lg"
+                className="flex flex-col w-full h-32 sm:w-2/3 lg:w-1/2 sm:h-36 bg-sky-950 rounded-lg"
                 onClick={handleEventClick}
             >
                 <div className="h-full flex px-2 sm:text-lg">
@@ -39,11 +40,17 @@ const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSele
                         <div className="flex flex-col w-3/4 px-1 sm:px-2">
                             <div className="h-1/2">
                                 <h1 className="h-fit text-lg sm:text-2xl font-bold text-nowrap overflow-hidden text-ellipsis">{eventTitle}</h1>
-                                <a className="relative text-sm sm:text-lg -top-1.5">{startDate}</a>
+                                <a className="relative text-sm md:text-lg -top-1.5">{startDate}</a>
                             </div>
-                            <div className="flex w-full h-1/4 flex-col border-t-[1px]">
-                                <h3 className="w-12 font-bold text-sm sm:text-md">Ends:</h3>
-                                <a className="w-full text-sm sm:text-lg">{endDate}</a>
+                            <div className="flex w-full h-full flex-row border-t-[1px]">
+                                <div className="w-full md:w-1/2 flex flex-col pr-1">
+                                    <h3 className="font-bold text-sm sm:text-md">Ends:</h3>
+                                    <a className="text-xs sm:text-md">{endDate}</a>
+                                </div>
+                                <div className="hidden sm:flex w-1/2 flex-col pr-1">
+                                    <h3 className="font-bold text-sm sm:text-md">Location:</h3>
+                                    <a className="text-xs sm:text-md">{location}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,10 +59,11 @@ const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSele
             {selectedEventId === eventId && (
                 <Modal
                     handleModalClose={handleModalClose}
-                    groups={groups}
                     eventTitle={eventTitle}
                     startDate={startDate}
                     endDate={endDate}
+                    groups={groups}
+                    location={location}
                     description="This is where the description goes and it can go for a long time.
                         This is where the description goes and it can go for a long time.
                         This is where the description goes and it can go for a long time."

@@ -26,30 +26,33 @@ export default function Events() {
                         selectedEventId={selectedEventId}
                         setSelectedEventId={setSelectedEventId}
                         imageSrc={Bible}
-                        eventTitle="Event Title That is too longgggggggg"
-                        groups={[Group.HiC]}
+                        eventTitle="Event Title That is very very very very very long"
                         startDate="Feb 1, 2024 at 8:00PM"
                         endDate="Feb 3, 2024 at 11:30AM"
+                        groups={[Group.HiC]}
+                        location="123 Sesame Street, Canada"
                     />
                     <EventCard
                         eventId={2}
                         selectedEventId={selectedEventId}
                         setSelectedEventId={setSelectedEventId}
                         imageSrc={Bible}
-                        eventTitle="Bible Study"
-                        groups={[Group.General]}
+                        eventTitle="Christmas Service"
                         startDate="Apr 1, 2024 at 8:00PM"
                         endDate="Apr 3, 2024 at 11:30AM"
+                        groups={[Group.General]}
+                        location="123 Sesame Street, Canada"
                     />
                     <EventCard
                         eventId={3}
                         selectedEventId={selectedEventId}
                         setSelectedEventId={setSelectedEventId}
                         imageSrc={Calendar}
-                        eventTitle="Event Title"
-                        groups={[Group.CU, Group.Adults]}
+                        eventTitle="Bible Study"
                         startDate="June 1, 2024 at 8:00PM"
                         endDate="June 3, 2024 at 11:30AM"
+                        groups={[Group.CU, Group.Adults]}
+                        location="123 Sesame Street, Canada"
                     />
                     <EventCard
                         eventId={4}
@@ -57,9 +60,10 @@ export default function Events() {
                         setSelectedEventId={setSelectedEventId}
                         imageSrc={Calendar}
                         eventTitle="Event Title"
-                        groups={[Group.HiC, Group.CU, Group.Adults]}
                         startDate="Sept 1, 2024 at 8:00PM"
                         endDate="Sept 3, 2024 at 11:30AM"
+                        groups={[Group.HiC, Group.CU, Group.Adults]}
+                        location="123 Sesame Street, Canada"
                     />
                 </div>
             </div>
