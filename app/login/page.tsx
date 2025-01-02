@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useState } from 'react';
-import churchBackground from '@/images/church.jpg';
-import Image from 'next/image';
-import user from '@/images/user.svg';
-import eye from '@/images/eye.svg';
-import eye_slash from '@/images/eye_slash.svg';
+import React, { useState } from "react";
+import churchBackground from "@/images/church.jpg";
+import Image from "next/image";
+import user from "@/images/icons/user.svg";
+import eye from "@/images/icons/eye.svg";
+import eye_slash from "@/images/icons/eye_slash.svg";
 
 function Login() {
 
