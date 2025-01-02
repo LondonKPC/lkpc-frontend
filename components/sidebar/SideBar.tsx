@@ -10,12 +10,12 @@ import {routeDefinitions} from "@/constants/routeDefinitions";
 // CSS
 import "./SideBar.css"
 
-// Images
-import XMark from "@/images/xmark_white.svg"
-import Handshake from "@/images/handshake_white.svg";
-import Calendar from "@/images/calendar_white.svg";
-import Contact from "@/images/message_white.svg";
-import Login from "@/images/login_white.svg";
+// Images/icons
+import XMark from "@/images/icons/xmark_white.svg"
+import Handshake from "@/images/icons/handshake_white.svg";
+import Calendar from "@/images/icons/calendar_white.svg";
+import Contact from "@/images/icons/message_white.svg";
+import Login from "@/images/icons/login_white.svg";
 
 
 interface MobileMenuProps {
@@ -25,7 +25,7 @@ interface MobileMenuProps {
 
 const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): ReactElement => {
     return (
-        <div className={`sm:hidden fixed top-0 right-0 w-64 h-full bg-gray-800 text-white transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className={`sm:hidden fixed top-0 right-0 z-30 w-64 h-full bg-gray-800 text-white transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="flex justify-end">
                 <Image
                     className="m-2"
@@ -38,7 +38,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
             </div>
             <nav className="w-full h-full flex flex-col items-center my-4 space-y-8">
                 <div className="sidebar-link">
-                    <Link href={routeDefinitions.connect} className="link">
+                    <Link href={routeDefinitions.connect} onClick={handleOpenMenu} className="link">
                         <Image
                             className="mx-2"
                             src={Handshake}
@@ -50,7 +50,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                     </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Link href={routeDefinitions.events} className="link">
+                    <Link href={routeDefinitions.events} onClick={handleOpenMenu} className="link">
                         <Image
                             className="mx-2"
                             src={Calendar}
@@ -62,7 +62,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                     </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Link href={routeDefinitions.contact} className="link">
+                    <Link href={routeDefinitions.contact} onClick={handleOpenMenu} className="link">
                         <Image
                             className="mx-2"
                             src={Contact}
@@ -74,7 +74,7 @@ const SideBar: React.FC<MobileMenuProps> = ({ isMenuOpen, handleOpenMenu }): Rea
                     </Link>
                 </div>
                 <div className="sidebar-link">
-                    <Link href={routeDefinitions.login} className="link">
+                    <Link href={routeDefinitions.login} onClick={handleOpenMenu} className="link">
                         <Image
                             className="mx-2"
                             src={Login}
