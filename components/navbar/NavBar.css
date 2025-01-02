@@ -1,5 +1,5 @@
 .main-container {
-    @apply fixed w-full h-16 bg-transparent justify-center items-center;
+    @apply fixed w-full h-16 bg-transparent justify-center items-center z-30;
 }
 
 .navbar-container {
@@ -12,7 +12,7 @@
 }
 
 .navbar-link {
-    @apply hidden text-black hover:text-indigo-200 sm:flex text-2xl font-mono w-32 flex-col items-center cursor-pointer
+    @apply hidden text-black hover:text-indigo-200 sm:flex text-2xl w-32 flex-col items-center cursor-pointer
     transform transition-transform duration-300 hover:scale-110;
 }
 

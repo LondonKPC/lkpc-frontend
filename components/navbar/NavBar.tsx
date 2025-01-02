@@ -13,25 +13,25 @@ import {routeDefinitions} from "@/constants/routeDefinitions";
 import "./NavBar.css";
 
 // Images
-import LKPC_Logo from "@/images/LKPC_Logo.svg";
-import Bars from "@/images/bars.svg"
-import Handshake from "@/images/handshake.svg"
-import Calendar from "@/images/calendar.svg"
-import Contact from "@/images/message.svg"
-import Login from "@/images/login.svg"
+import LKPC_Logo from "@/images/icons/LKPC_Logo.svg";
+import Bars from "@/images/icons/bars.svg"
+import Handshake from "@/images/icons/handshake.svg"
+import Calendar from "@/images/icons/calendar.svg"
+import Contact from "@/images/icons/message.svg"
+import Login from "@/images/icons/login.svg"
 import {useClickOutside} from "@/hooks/useClickOutside";
 
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const outsideRef = useRef<HTMLDivElement>(null);
+    const sidebarRef = useRef<HTMLDivElement>(null);
     const handleOpenMenu = useCallback(() => {
         setIsMenuOpen((prevState) => !prevState);
     }, []);
 
-    useClickOutside({ ref: outsideRef, callback: () => setIsMenuOpen(false) });
+    useClickOutside({ ref: sidebarRef, condition: isMenuOpen, callback: () => setIsMenuOpen(false) });
 
     return (
-            <div ref={outsideRef} className="main-container z-10">
+            <div ref={sidebarRef} className="main-container z-10">
                 <Link href={routeDefinitions.home} onClick={() => isMenuOpen && setIsMenuOpen(false)}>
                     <Image
                         className="absolute left-0 top-0 z-20 rounded-full transform transition-transform duration-300 hover:scale-110"
