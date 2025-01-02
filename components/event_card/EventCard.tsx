@@ -28,7 +28,7 @@ const EventCard: React.FC<EventCardProps> = ({ eventId, imageSrc, eventTitle, st
     return (
         <div className="flex h-full w-full justify-center items-center">
             <div
-                className="flex flex-col w-full h-32 sm:w-3/4 lg:w-1/2 sm:h-36 bg-gray-200 rounded-lg"
+                className="flex flex-col w-full h-32 sm:w-3/4 lg:w-1/2 sm:h-36 bg-gray-200 rounded-lg cursor-pointer"
                 onClick={handleEventClick}
             >
                 <div className="h-full flex px-2 sm:text-lg text-black">
