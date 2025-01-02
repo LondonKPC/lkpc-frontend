@@ -33,15 +33,10 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - Contains brief introduction description
 - Buttons to go to main church pages
 
-`About`
-- Location
-- Service schedules
-- Church leaders
-
 `Events`
 - Information about upcoming events
 - General events
-- Constants events
+- Group events
 - Users can create group events
   - `name`
   - `description`
@@ -51,8 +46,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - Admins can create general events
 
 `Connect`
-- Constants information (ex. Sunday school, Hi-C, CU, Adults)
-- Constants leader information
+- Group information (ex. Sunday school, Hi-C, CU, Adults)
+- Group leader information
   - Users can modify the leader information for the group
   - Admins can modify all groups
 
