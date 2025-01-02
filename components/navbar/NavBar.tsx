@@ -28,7 +28,7 @@ const NavBar = () => {
         setIsMenuOpen((prevState) => !prevState);
     }, []);
 
-    useClickOutside({ ref: outsideRef, callback: () => setIsMenuOpen(false) });
+    useClickOutside({ ref: outsideRef, condition: isMenuOpen, callback: () => setIsMenuOpen(false) });
 
     return (
             <div ref={outsideRef} className="main-container">

@@ -18,18 +18,21 @@ import {RefObject, useEffect} from "react";
 
 interface UseClickOutsideProps<T> {
     ref: RefObject<T | null>;
+    condition?: boolean;
     callback: () => void;
 }
 
-export const useClickOutside = <T extends HTMLElement>({ref, callback}: UseClickOutsideProps<T>): void => {
+export const useClickOutside = <T extends HTMLElement>({ ref, condition = true, callback }: UseClickOutsideProps<T>): void => {
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (ref.current != null && !ref.current.contains(event.target as Node)) {
+            if (condition && ref.current != null && !ref.current.contains(event.target as Node)) {
                 callback();
             }
         };
 
-        document.addEventListener('click', handleClickOutside);
+        if (condition) {
+            document.addEventListener('click', handleClickOutside);
+        }
 
         return () => {
             document.removeEventListener('click', handleClickOutside);

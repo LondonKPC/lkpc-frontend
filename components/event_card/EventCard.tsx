@@ -18,18 +18,21 @@ interface EventCardProps {
 const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSelectedEventId, imageSrc, eventTitle, startDate, endDate, groups, location }): ReactElement => {
     const handleEventClick = useCallback(() => {
         setSelectedEventId(eventId);
+        document.body.style.overflow = "hidden";
     }, [eventId, setSelectedEventId]);
 
     const handleModalClose = useCallback(() => {
         setSelectedEventId(null);
+        document.body.style.overflow = "auto";
     }, [setSelectedEventId]);
+
     return (
         <div className="flex w-full justify-center items-center">
             <div
-                className="flex flex-col w-full h-32 sm:w-2/3 lg:w-1/2 sm:h-36 bg-sky-950 rounded-lg"
+                className="flex flex-col w-full h-32 sm:w-2/3 lg:w-1/2 sm:h-36 bg-gray-200 rounded-lg"
                 onClick={handleEventClick}
             >
-                <div className="h-full flex px-2 sm:text-lg">
+                <div className="h-full flex px-2 sm:text-lg text-black">
                     {groups.join(", ")}
                 </div>
                 <div className="w-full h-full flex-grow flex justify-center items-end px-1 pb-1">
@@ -65,6 +68,10 @@ const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSele
                     groups={groups}
                     location={location}
                     description="This is where the description goes and it can go for a long time.
+                        This is where the description goes and it can go for a long time.
+                        This is where the description goes and it can go for a long time.
+                        This is where the description goes and it can go for a long time.
+                        This is where the description goes and it can go for a long time.
                         This is where the description goes and it can go for a long time.
                         This is where the description goes and it can go for a long time."
                 />

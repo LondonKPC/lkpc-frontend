@@ -1,10 +1,10 @@
-import React, {ReactElement} from "react";
-
-import Image from "next/image"
+import React, { ReactElement, useRef } from "react";
+import Image from "next/image";
 
 // Images
-import CircleX from "@/images/circle_x.svg"
-import {Group} from "@/constants/constants";
+import CircleX from "@/images/circle_x.svg";
+import { Group } from "@/constants/constants";
+import {useClickOutside} from "@/hooks/useClickOutside";
 
 interface ModalProps {
     handleModalClose: () => void;
@@ -16,47 +16,51 @@ interface ModalProps {
     description: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ handleModalClose, eventTitle, startDate, endDate, groups, location, description }): ReactElement => {
+const Modal: React.FC<ModalProps> = ({ handleModalClose, eventTitle, startDate, endDate, groups, location, description,}): ReactElement => {
+    const outsideDivRef = useRef<HTMLDivElement>(null);
+
+    useClickOutside({ ref: outsideDivRef, callback: () => handleModalClose() });
+
     return (
-        <div className="absolute w-full justify-center items-center">
-            <div className="relative h-full z-10 -top-32 shadow-xl">
-                <div className="relative items-end h-1/2 bg-white rounded-lg shadow-lg p-2">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-30">
+            <div className="bg-white w-11/12 sm:w-1/2 lg:w-1/3 p-1 rounded-xl shadow-xl relative" ref={outsideDivRef}>
+                <div className="relative items-end max-h-[90vh] bg-white rounded-xl z-10 space-y-2 p-4 overflow-hidden">
                     <Image
                         onClick={handleModalClose}
-                        className="absolute top-2 right-2 z-10 rounded-full"
+                        className="absolute top-2 right-2 z-0 rounded-full cursor-pointer"
                         src={CircleX}
-                        alt="CircleX"
+                        alt="Close Modal"
                         width={20}
                         height={20}
                     />
-                    <div className="border-b-[1px] text-black font-bold">
-                        <h1 className="w-5/6 text-xl">{eventTitle}</h1>
+                    <div className="border-b-[1px] pb-2 text-black font-bold">
+                        <h1 className="text-xl truncate">{eventTitle}</h1>
                     </div>
-                    <div className="flex flex-col h-1/3 text-black text-sm border-b-[1px]">
+                    <div className="flex flex-col text-black text-sm space-y-2 overflow-y-auto pr-3 max-h-[75vh]">
                         <div>
-                            <a className="font-bold">Start Date: </a>
-                            <a>{startDate}</a>
+                            <span className="font-bold">Start Date: </span>
+                            <span>{startDate}</span>
                         </div>
                         <div>
-                            <a className="font-bold">End Date: </a>
-                            <a>{endDate}</a>
+                            <span className="font-bold">End Date: </span>
+                            <span>{endDate}</span>
                         </div>
                         <div>
-                            <a className="font-bold">Groups: </a>
-                            <a>{groups.join(", ")}</a>
+                            <span className="font-bold">Groups: </span>
+                            <span>{groups.join(", ")}</span>
                         </div>
-                        <div>
-                            <a className="font-bold">Location: </a>
-                            <a>{location}</a>
+                        <div className="border-b-[1px] pb-2">
+                            <span className="font-bold">Location: </span>
+                            <span>{location}</span>
                         </div>
-                    </div>
-                    <div className="w-full h-1/2 text-black">
-                        <a>{description}</a>
+                        <div className="text-black">
+                            <p>{description}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Modal;
