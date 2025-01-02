@@ -36,7 +36,7 @@ function Login() {
                             <input
                                 type="text"
                                 placeholder="Username"
-                                className="bg-transparent shadow-xl rounded-xl w-full h-full p-4"
+                                className="bg-transparent shadow-xl rounded-xl w-full h-full p-4 pr-12"
                             />
                             <div className="absolute inset-y-0 right-3 w-8 flex items-center justify-center pointer-events-none">
                                 <Image className="" src={user} alt="" width={25} height={25} />
@@ -48,7 +48,7 @@ function Login() {
                             <input
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Password"
-                                className="bg-transparent shadow-xl rounded-xl w-full h-full p-4"
+                                className="bg-transparent shadow-xl rounded-xl w-full h-full p-4 pr-12"
                             />
                             <button
                                 className="absolute inset-y-0 right-3 w-8 flex items-center justify-center"
