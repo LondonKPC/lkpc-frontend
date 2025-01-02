@@ -1,4 +1,4 @@
-import React, {ReactElement, useCallback, useState} from "react";
+import React, {ReactElement, useState} from "react";
 import {Group} from "@/constants/constants";
 import Image, {StaticImageData} from "next/image";
 import Modal from "@/components/modal/Modal";
