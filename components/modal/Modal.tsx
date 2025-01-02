@@ -2,7 +2,7 @@ import React, { ReactElement, useRef } from "react";
 import Image from "next/image";
 
 // Images
-import CircleX from "@/images/circle_x.svg";
+import CircleX from "@/images/icons/circle_x.svg";
 import { Group } from "@/constants/constants";
 import {useClickOutside} from "@/hooks/useClickOutside";
 

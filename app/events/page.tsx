@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useRef, useState} from "react";
+import React from "react";
 
 import EventCard from "@/components/event_card/EventCard";
 import {Group} from "@/constants/constants";
