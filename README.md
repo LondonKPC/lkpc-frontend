@@ -33,11 +33,6 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - Contains brief introduction description
 - Buttons to go to main church pages
 
-`About`
-- Location
-- Service schedules
-- Church leaders
-
 `Events`
 - Information about upcoming events
 - General events

@@ -1,5 +1,5 @@
 .main-container {
-    @apply fixed w-full h-16 bg-transparent justify-center items-center;
+    @apply fixed w-full h-16 bg-transparent justify-center items-center z-30;
 }
 
 .navbar-container {
