@@ -17,13 +17,13 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ handleModalClose, eventTitle, startDate, endDate, groups, location, description,}): ReactElement => {
-    const outsideDivRef = useRef<HTMLDivElement>(null);
+    const modalRef = useRef<HTMLDivElement>(null);
 
-    useClickOutside({ ref: outsideDivRef, callback: () => handleModalClose() });
+    useClickOutside({ ref: modalRef, callback: () => handleModalClose() });
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-30">
-            <div className="bg-white max-h-[50%] w-11/12 sm:w-1/2 lg:w-1/3 p-1 rounded-xl shadow-xl relative" ref={outsideDivRef}>
+            <div className="bg-white max-h-[50%] w-11/12 sm:w-1/2 lg:w-1/3 p-1 rounded-xl shadow-xl relative" ref={modalRef}>
                 <div className="relative items-end max-h-[90vh] bg-white rounded-xl z-10 space-y-2 p-4 overflow-hidden">
                     <Image
                         onClick={handleModalClose}
