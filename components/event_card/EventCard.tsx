@@ -1,12 +1,10 @@
-import React, {ReactElement, useCallback} from "react";
+import React, {ReactElement, useCallback, useState} from "react";
 import {Group} from "@/constants/constants";
 import Image, {StaticImageData} from "next/image";
 import Modal from "@/components/modal/Modal";
 
 interface EventCardProps {
     eventId: number;
-    selectedEventId: number | null
-    setSelectedEventId: (eventId: number | null) => void;
     imageSrc: StaticImageData;
     eventTitle: string;
     startDate: string;
@@ -15,16 +13,17 @@ interface EventCardProps {
     location: string;
 }
 
-const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSelectedEventId, imageSrc, eventTitle, startDate, endDate, groups, location }): ReactElement => {
-    const handleEventClick = useCallback(() => {
+const EventCard: React.FC<EventCardProps> = ({ eventId, imageSrc, eventTitle, startDate, endDate, groups, location }): ReactElement => {
+    const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
+    const handleEventClick = () => {
         setSelectedEventId(eventId);
         document.body.style.overflow = "hidden";
-    }, [eventId, setSelectedEventId]);
+    };
 
-    const handleModalClose = useCallback(() => {
+    const handleModalClose = () => {
         setSelectedEventId(null);
         document.body.style.overflow = "auto";
-    }, [setSelectedEventId]);
+    };
 
     return (
         <div className="flex h-full w-full justify-center items-center">
@@ -35,7 +34,7 @@ const EventCard: React.FC<EventCardProps> = ({ eventId, selectedEventId, setSele
                 <div className="h-full flex px-2 sm:text-lg text-black">
                     {groups.join(", ")}
                 </div>
-                <div className="w-full h-full flex-grow flex justify-center items-end px-1 pb-1">
+                <div className="w-full h-full flex-grow justify-center items-end px-1 pb-1">
                     <div className="flex flex-row w-full h-24 sm:h-28 bg-white rounded-lg text-black p-1">
                         <div className="flex flex-row w-1/4 h-full">
                             <Image src={imageSrc} alt="Calendar" />

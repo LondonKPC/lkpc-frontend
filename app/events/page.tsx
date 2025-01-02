@@ -10,7 +10,7 @@ import Message from "@/images/icons/message.svg"
 import Calendar from "@/images/icons/calendar.svg"
 
 export default function Events() {
-    const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
+    
 
     return (
         <div className="min-h-full p-2 bg-cover z-0">  {/* TODO: add background image here */}
@@ -22,8 +22,6 @@ export default function Events() {
                 <div className="flex flex-col items-center justify-center space-y-4">
                     <EventCard
                         eventId={1}
-                        selectedEventId={selectedEventId}
-                        setSelectedEventId={setSelectedEventId}
                         imageSrc={Message}
                         eventTitle="Event Title That is very very very very very long"
                         startDate="Feb 1, 2024 at 8:00PM"
@@ -33,8 +31,6 @@ export default function Events() {
                     />
                     <EventCard
                         eventId={2}
-                        selectedEventId={selectedEventId}
-                        setSelectedEventId={setSelectedEventId}
                         imageSrc={Message}
                         eventTitle="Christmas Service"
                         startDate="Apr 1, 2024 at 8:00PM"
@@ -44,8 +40,6 @@ export default function Events() {
                     />
                     <EventCard
                         eventId={3}
-                        selectedEventId={selectedEventId}
-                        setSelectedEventId={setSelectedEventId}
                         imageSrc={Calendar}
                         eventTitle="Bible Study"
                         startDate="June 1, 2024 at 8:00PM"
@@ -55,8 +49,6 @@ export default function Events() {
                     />
                     <EventCard
                         eventId={4}
-                        selectedEventId={selectedEventId}
-                        setSelectedEventId={setSelectedEventId}
                         imageSrc={Calendar}
                         eventTitle="Event Title"
                         startDate="Sept 1, 2024 at 8:00PM"
